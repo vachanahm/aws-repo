@@ -1,0 +1,52 @@
+
+roles 
+1 ec2 imstance assuming role on s3
+2 a user assuming role to get temp credentials
+3  we can use roles to swtich between the accounts
+
+	
+  
+  1 
+   ec2 instance is having internal access to s3 (who ever is the user ec2 is having access to s3)
+   every user is can access s3 using this ec2-instance.
+   step 
+   role >s3 full access
+   attach this role to particular instance
+   
+   2 a user assuming role to get temp credentials
+ 
+ we should work this in cli of windows
+   
+   
+   
+   3
+   we can use roles to swtich between the accounts
+   
+   
+   role >>>> aws account >>> permision for the role(admin full access)
+   create role 
+   edit 
+   trust relationship >> AWS :<user ARN>
+   
+   {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::829407775534:user/AWS-11"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+
+
+login to IAM user 
+
+swtich role (right top drop down)
+account id (root)
+rolename( which we created)
+done
+
+   
