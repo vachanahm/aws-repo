@@ -1,0 +1,35 @@
+create aws ubuntu server
+allow in bound rule
+    all traffic 
+	80
+	8080
+	
+create rule for 
+  CloudWatchAgentAdminPolicy
+ attach it to instance created
+ 
+sudo apt update
+sudo apt install apache2
+sudo systemctl status apache2
+
+
+ 
+
+  
+  
+  
+1. wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+2. sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+3. sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+
+  /var/log/apache2/access.log
+ demo-ec2-apache-log2
+ apache.access.log
+ /var/log/apache2/error.log
+demo-ec2-apache-logs
+apache.error.log
+
+4. sudo apt-get update -y
+5. sudo apt-get install collectd
+6. sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+7. sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
