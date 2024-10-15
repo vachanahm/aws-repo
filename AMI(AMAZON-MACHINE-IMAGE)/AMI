@@ -1,0 +1,7 @@
+AMI amazon machine image 
+
+An AMI contains the software configuration (for example, an operating system, an application server, and applications) required for the creation of EC2 instances. 
+When you launch an instance, you must specify an AMI.
+Under launch instance ,check the drop down > Launch instance from template
+
+LAUNCH TEMPLATE >> CREATE LAUNCH TEMPLATE
