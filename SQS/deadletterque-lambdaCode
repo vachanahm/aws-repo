@@ -1,0 +1,23 @@
+import json
+import logging
+
+# Set up logging
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+def lambda_handler(event, context):
+    # Log the received event for debugging
+    logger.info("Received event: " + json.dumps(event))
+    
+    # Iterate over the records in the event
+    for record in event['Records']:
+        message_body = record['body']
+        logger.info("Processing message: " + message_body)
+        
+        # Simulate a failure by raising an exception
+        raise Exception("Simulated processing failure for testing DLQ")
+    
+    return {
+        'statusCode': 500,
+        'body': json.dumps("Processing failed")
+    }
